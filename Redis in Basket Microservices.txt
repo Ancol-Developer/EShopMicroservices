@@ -1,0 +1,54 @@
+Redis in Basket Microservices
+Redis In Basket Microservices
+- Implement Proxy pattern, decorator Pattern
+- Implement Cache-aside Pattern/ Cache invalidation
+- Develop Cached BasketRepository and Decorate Scrutor Library
+- Setup Redis as a Distributed Cache using Docker-compose
+- Integrate Redis into out Basket Microservices to cache user cart data
+
+Cache-Aside Pattern for Microservices
+
+What is Proxy and Decorator patterns?
+Proxy Pattern
+- Tạo ra 1 lớp mới đại diện cho lớp service đang có cùng 1 interface, lớp này gọi là proxy
+- Giống như 1 người bảo vệ có thể thêm các hành vi hoặc kiểm tra bổ sung trước khi truy cập vào đối tượng thực tế
+Decorator patterns
+- Là một mẫu thiết kế cấu trúc cho phép bạn đính kèm các hành vi mới vào đối tượng bằng cách đặt đối tượng này bên trong các đối tượng khác bao bọc đặc biệt có chứa các hành vi đó dựa vào inject 
+- đối mới decorator thì mở rộng chức năng repository bằng cách thêm logic lưu trữ cache
+
+
+Ở đây theo Proxy Pattern: thì CachedBasketRepository là là Proxy và chuyển tiếp các cuộc gọi đến kho lưu trữ giỏ hàng
+
+Sử dụng cache để giảm tần suất truy cập cơ sở dữ liệu
+Thêm triển khai logic lưu trữ đệm trọng mỗi phương thức và giảm số lần gọi cơ sở dữ liệu
+.NET đã cung cấp phương thức để lưu Cached
+
+Microservices Synchoronous Communication
+- Giao tiếp đồng bộ sử dụng giao thức HTTP hoặc gRPC  để trả về response
+- Máy khách sẽ chặn luồng của họ cho đến khi nhận được phản hồi từ server
+- Giao thức truyền thông đồng bộ có thể dử dụng là http hoặc https
+- Máy khách sẽ call the server và block các chức năng cho tới khi nhận được phản hồi từ server
+Microservies Asynchonous Commuication
+- Về cơ bản là máy khách gửi request nhưng không cần chờ phản hồi
+- Máy khách ko nên chặn 1 luồng trong khi chờ phản hồi
+- Giao thức thường dùng là: AMQP (advance message queuing protocol): Kafka, RabbitMQ 
+
+Sử dụng 4 giao thức: 
+- Rest http APIs để gửi request từ microservices
+- gRPC APIs để giao tiếp bên trong microservecies
+- GraphQL APIs khi dữ liệu linh hoạt có cấu trúc trong các dịch vụ siêu nhỏ 
+- Web socket: Khi giao tiếp 2 chiều thời gian thực
+
+gRPC: là Remote Procedure call. Sử dụng hiệu quả kết nối trong hệ thống phân tán. Hiệu quả cá dùng HTTP/2 protocol để truyền tải tin nhắn nhị phân.
+
+How gRPC work: dùng để giao tiếp giữa backend to backend => CPU không gánh nhiều cost cho encode/decodeing nữa.
+
+Protocol Buffers là một công cụ định nghĩa cấu trúc dữ liệu và giao thức truyền thông giữa các ứng dụng
+Để định nghĩa giao diện dịch vụ với Protocol Buffers trogn gRPC cần thực hiện các bước sau:
+- Định nghĩa file .proto: mô tả cấu trúc dữ liệu và giao diện dịch vụ - Định nghĩa message và service 
+- Biên dịch file .proto: sử dụng biên dịch protocal buffer để tạo các class hoặc interface cho ngôn ngữ lập trình mục tiêu
+- Triên khai logic dịch vụ: sử dụng các class hoặc interface được tạo ra để triển khai logic xử lý dịch vụ và truyền thông giữa client và server gRPC.
+
+Cơ chế hoạt động: 
+là cơ chế cho phép client gọi các phương thức từ xa trên server một cách tương tự như việc gọi các hàm cục bộ
+
