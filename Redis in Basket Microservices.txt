@@ -52,3 +52,5 @@ Protocol Buffers là một công cụ định nghĩa cấu trúc dữ liệu và
 Cơ chế hoạt động: 
 là cơ chế cho phép client gọi các phương thức từ xa trên server một cách tương tự như việc gọi các hàm cục bộ
 
+
+Add-migration InitialCreate -OutputDir Data/Migrations -Project Ordering.Infrastructure -StartupProject Ordering.API
