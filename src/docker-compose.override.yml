@@ -35,9 +35,11 @@ services:
     container_name: orderdb
     environment:
       - ACCEPT_EULA=Y
-      - ANCOL_PASSWORD=Ancol123456
-    port:
+      - SA_PASSWORD=SwN12345678
+    restart: always
+    ports:
       - "1433:1433"
+
   catalog.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
