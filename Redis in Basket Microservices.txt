@@ -51,6 +51,68 @@ Protocol Buffers là một công cụ định nghĩa cấu trúc dữ liệu và
 
 Cơ chế hoạt động: 
 là cơ chế cho phép client gọi các phương thức từ xa trên server một cách tương tự như việc gọi các hàm cục bộ
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DDD:
 
+Domain event:
+Gửi các sự kiện đến các application khác khi có sự thay đổi trong Domain
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CQRS - Command Query Responsibility Segragation
+
+- CQRS design pattern in order to avoid complex queries to get rid of inefficient joins
+- Separates read and write operations with separating databases
+
+* 2 action:
+	- Commands: changing the state of data into application
+	- Queries: handling complex join operations and returning a result and dont change the state of data into applications
+- Large-scaled microservices architectures needs to manage high-volume data requirements
+- Uses both CQRS and Event Sourcing pattens ti improve application performance
+
+- Performing CRUD operations need to make complex validations and process long business logic, will cause to lock database operaions 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Event Sourcing Pattern
+
+- Most applications saves data into databases with the current state of entity. (ghi đè lên trường hiện có khi có điều gì đó thay đổi) - mô hình truyền thống
+- In large-scaled architectures, frequent update database operations can negatively impact database performance, responseiveness, and limits of scalability
+
+- Instead of saving latest status of data into database, Event Sourcing pattern offers to save all event into database with sequential ordered of data events
+
+- This events database called Event Store
+- Instead of overiding the data into table, It create a new record of each change to data, and it becomes sequential list of past event
+- Event Store database become the source-of-truth of data
+
+- Sequectial event list using for generating Materialized View that represents final state of data to perform queries
+- Event Store convert to read database with following the Materizlized Views Pattern
+- Convert operation can be handle by publish/subcribe pattern with publish event with mesage broker sysems
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CQRS with Event Sourcing Pattern
+
+- Store events into the write database; source-of-truth events database
+- Read database of CQRS pattern provides materialized  views of the data with denormalized tables
+- Materialized views read database consumes events from write database convert them in to denormalized views
+- The writing database is never save status of data only event actions are stored
+- Store history of data and able to reply any point of time in order to re-generate status of data
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Add-migration InitialCreate -OutputDir Data/Migrations -Project Ordering.Infrastructure -StartupProject Ordering.API
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
