@@ -97,6 +97,20 @@ CQRS with Event Sourcing Pattern
 - Store history of data and able to reply any point of time in order to re-generate status of data
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Eventual Consistency Principle
+- Strict Consistency: When we save data, the data should affect and seem immediately for every client
+- Eventual Consistency: When we write any data, it will take some time for clients reading the data
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Logical and Physical Implementation of CQRS
+- Logical Implementation of CQRS: Spliting Operations, Not databases. Separate the read(query) operations from the write (command) operations at the code level, but not
+necessarily at the database level
+	- Even though the same database is used, tha paths for reading and writing data are distinct
+- Physical Inplementation of CQRS: Separate Databases. Splitting the read and write operations not just at the code level but also physically using separate database
+	- Introduces data consistency and synchronization problem
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Add-migration InitialCreate -OutputDir Data/Migrations -Project Ordering.Infrastructure -StartupProject Ordering.API
 
 
