@@ -110,7 +110,22 @@ necessarily at the database level
 - Physical Inplementation of CQRS: Separate Databases. Splitting the read and write operations not just at the code level but also physically using separate database
 	- Introduces data consistency and synchronization problem
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Yarp IMAGE: 
+Route -> Cluster -> Path -> Destination
+So we will create "Route -> Cluster -> Path -> Destination" for each Microservices
+For example for Catalog microservices
+catalog-route  ->  catalog-cluster -> /catalog-service/{**catch-all}  -> http://localhost:6000/ (docker address)
+
+Routing Name and Structure:
+- We define routes for each microservice:
+	Catalog: catalog-route
+	Basket: basket-route
+	Ordering: ordering-route
+
+- Each route is mapped to a corresponding cluster, which the directs the request to the designed service
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Add-migration InitialCreate -OutputDir Data/Migrations -Project Ordering.Infrastructure -StartupProject Ordering.API
 
 
