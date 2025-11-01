@@ -33,15 +33,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.Application", "Ser
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.Infrastructure", "Services\Ordering\Ordering.Infrastructure\Ordering.Infrastructure.csproj", "{25C36F98-B668-4A2E-8589-2BE1EAC438DF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildingBlocks.Messaging", "BuildingBlocks\BuildingBlocks.Messaging\BuildingBlocks.Messaging.csproj", "{2882CF69-C0B4-4751-9ED2-0D2370528EF9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Messaging", "BuildingBlocks\BuildingBlocks.Messaging\BuildingBlocks.Messaging.csproj", "{2882CF69-C0B4-4751-9ED2-0D2370528EF9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "APIGateways", "APIGateways", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YarpAPIGateway", "APIGateways\YarpAPIGateway\YarpAPIGateway.csproj", "{3AE571D9-1972-433B-B221-4B52018FB6C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YarpAPIGateway", "APIGateways\YarpAPIGateway\YarpAPIGateway.csproj", "{3AE571D9-1972-433B-B221-4B52018FB6C4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApps", "WebApps", "{518DB519-C7FE-4ACB-851B-16DF57E0AD52}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shopping.Web", "WebApps\Shopping.Web\Shopping.Web.csproj", "{A36062B5-EA48-46E4-8FCD-6DDF1CADD068}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shopping.Web", "WebApps\Shopping.Web\Shopping.Web.csproj", "{A36062B5-EA48-46E4-8FCD-6DDF1CADD068}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
