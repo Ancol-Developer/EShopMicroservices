@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Shopping.Web.Pages
 {
-    public class ProductDetailModel(ICatalogService catalogService, IBasketService basketService, Logger<ProductDetailModel> logger)
+    public class ProductDetailModel(ICatalogService catalogService, IBasketService basketService, ILogger<ProductDetailModel> logger)
         : PageModel
     {
         public ProductModel Product { get; set; } = default!;
