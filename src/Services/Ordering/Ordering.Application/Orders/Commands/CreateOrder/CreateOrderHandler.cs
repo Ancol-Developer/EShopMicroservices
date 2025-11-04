@@ -9,9 +9,16 @@ public class CreateOrderHandler(IApplicationDbContext dbContext)
         //return result 
 
         var order = CreateNewOrder(command.Order);
+        try
+        {
+            dbContext.Orders.Add(order);
+            await dbContext.SaveChangesAsync(cancellationToken);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception();
+        }
 
-        dbContext.Orders.Add(order);
-        await dbContext.SaveChangesAsync(cancellationToken);
 
         return new CreateOrderResult(order.Id.Value);
     }

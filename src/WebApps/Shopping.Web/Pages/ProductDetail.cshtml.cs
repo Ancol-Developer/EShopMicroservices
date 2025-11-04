@@ -14,7 +14,7 @@ namespace Shopping.Web.Pages
         public async Task<IActionResult> OnGetAsync(Guid productId)
         {
             var response = await catalogService.GetProduct(productId);
-            Product = response.Products;
+            Product = response.Product;
 
             return Page();
         }
@@ -29,8 +29,8 @@ namespace Shopping.Web.Pages
             basket.Items.Add(new ShoppingCartItemModel
             {
                 ProductId = productId,
-                ProductName = productResponse.Products.Name,
-                Price = productResponse.Products.Price,
+                ProductName = productResponse.Product.Name,
+                Price = productResponse.Product.Price,
                 Quantity = Quantity,
                 Color = Color
             });

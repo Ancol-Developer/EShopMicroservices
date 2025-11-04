@@ -12,4 +12,4 @@ public class ProductModel
 
 public record GetProductsResponse(IEnumerable<ProductModel> Products);
 public record GetProductByCategoryResponse(IEnumerable<ProductModel> Products);
-public record GetProductsByIdResponse(ProductModel Products);
+public record GetProductsByIdResponse(ProductModel Product);

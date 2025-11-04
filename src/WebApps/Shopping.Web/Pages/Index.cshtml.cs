@@ -26,8 +26,8 @@ namespace Shopping.Web.Pages
             basket.Items.Add(new ShoppingCartItemModel
             {
                 ProductId = productId,
-                ProductName = productResponse.Products.Name,
-                Price = productResponse.Products.Price,
+                ProductName = productResponse.Product.Name,
+                Price = productResponse.Product.Price,
                 Quantity = 1,
                 Color = "Black"
             });

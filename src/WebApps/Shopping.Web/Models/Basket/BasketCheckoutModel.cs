@@ -24,5 +24,5 @@ public class BasketCheckoutModel
 }
 
 // wrapper classes
-public record CheckoutBasketRequest(BasketCheckoutModel BasketCheckout);
+public record CheckoutBasketRequest(BasketCheckoutModel BasketCheckoutDto);
 public record CheckoutBasketResponse(bool IsSuccess);
